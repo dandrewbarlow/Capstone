@@ -1,0 +1,20 @@
+@media only screen and (max-width: 675px) {
+    #menubar {
+        flex-flow: column wrap;
+        text-align: center;
+        header h1 {
+            margin: 0.2em;
+        }
+        nav {
+
+            font-size: 1.5em;
+            align-self: center;
+        }
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    #menubar nav {
+        font-size: 1.2em;
+    }
+}
