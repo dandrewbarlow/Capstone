@@ -5,7 +5,7 @@ Emitting CU
 p5.js sketch for Capstone project promotion using a particle system for interaction
 
 credits:
-While this is not my 1st particle system and the hefty majority of it I coded from scratch, my personal knowledge of particle systems I can say is practically entirely learned from Daniel Schiffman's Nature of Code book & youtube series
+While this is not my 1st particle system and the hefty majority of it I coded from scratch, my personal knowledge of particle systems I can say is practically entirely learned from Daniel Schiffman's Nature of Code book & youtube series, to whom I am eternally grateful
 
 I've added credits to parts of the code where I needed to reference this material again
 
@@ -25,7 +25,8 @@ let particleManager;
 // declare how many to render
 const particleCount = 50;
 
-const coefficientOfFriction = 1;
+// <1, probably <.1, unless you want some fast ass particles
+const coefficientOfFriction = .001;
 
 // FUNCTIONS //////////////////////////////////////////////////
 
@@ -50,7 +51,7 @@ function setup() {
 
 // main loop
 function draw() {
-    background(0, 10);
+    background(0, 30);
     particleManager.update();
     particleManager.draw();
 

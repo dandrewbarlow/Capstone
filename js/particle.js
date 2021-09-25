@@ -36,28 +36,9 @@ class Particle {
     // take properties and apply to position
     update() {
         this.edgeCollision();
-        // this.friction();
-        this.mouseForce();
         this.position.add(this.velocity);
         this.velocity.add(this.acceleration);
-    }
-
-    mouseForce() {
-        let mousePosition = createVector(mouseX, mouseY);
-
-        let d = p5.Vector.sub(this.position, mousePosition);
-        this.applyForce(d)
-    }
-
-    // credit: Daniel Schiffman's Nature of Code
-    // https://natureofcode.com/book/chapter-2-forces/
-    friction() {
-        // not working correctly for some reason
-        let friction = this.velocity;
-        friction.mult(-1);
-        friction.normalize();
-        friction.mult(coefficientOfFriction);
-        this.applyForce(friction);
+        // console.log(this);
     }
 
     // when edge of browser is crossed, loop over to the other side
@@ -83,6 +64,8 @@ class Particle {
     draw() {
         fill(100, 50);
         noStroke();
-        ellipse(this.position.x, this.position.y, this.radius, this.radius);
+
+
+        ellipse(this.position.x, this.position.y, 50, 50);
     }
 }
