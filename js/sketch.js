@@ -25,9 +25,6 @@ let particleManager;
 // declare how many to render
 const particleCount = 50;
 
-// <1, probably <.1, unless you want some fast ass particles
-const coefficientOfFriction = .001;
-
 // FUNCTIONS //////////////////////////////////////////////////
 
 // responsive resizing of canvas
@@ -51,7 +48,7 @@ function setup() {
 
 // main loop
 function draw() {
-    background(0, 30);
+    background(0, 20);
     particleManager.update();
     particleManager.draw();
 

@@ -10,11 +10,52 @@ class ParticleManager {
     constructor(n) {
         this.particles = [];
         for (let i = 0; i < n; i++) {
-            this.particles.push( new Particle() );
+            this.particles.push( 
+                // randomly placed particle, with no velocity or acceleration
+                new Particle(
+                createVector(random(windowWidth), random(windowHeight)),
+                createVector(0, 0),
+                createVector(0, 0)
+                ) 
+            );
         }
+
+        this.mouse = createVector(mouseX, mouseY);
 
         // <1, probably <.1, unless you want some fast ass particles
         this.coefficientOfFriction = .1;
+    }
+
+    spawnParticle(p, v, a) {
+        let particle = new Particle(p,v,a);
+        this.particles.push(particle);
+    }
+
+    // calculates mouse movement between frames
+    mouseMovement() {
+        let distance = p5.Vector.sub(this.mouse, createVector(mouseX, mouseY));
+        // console.log(distance);
+        return distance.div(-2);
+    }
+
+    // emit particles from mouse
+    mouseEmit() {
+        let mouseMove = this.mouseMovement();
+        let velocity = createVector(
+            mouseMove.x * randomGaussian(1, 1) + randomGaussian(1, 1),
+            mouseMove.y * randomGaussian(1, 1) + randomGaussian(1, 1),
+        );
+
+        // console.log(velocity);
+
+        this.spawnParticle(
+            createVector(mouseX, mouseY),
+            velocity,
+            createVector(0, 0)
+        );
+
+        // keep particles from reaching too high of a value
+        this.particles.shift();
     }
 
     // resize all particles
@@ -27,14 +68,17 @@ class ParticleManager {
     // update each particle, each draw loop. also apply global forces at this level
     update() {
         this.friction();
-        this.mouseForce();
+
+        this.mouseEmit();
 
         this.particles.forEach(particle => {
             particle.update();
-        })
+        });
+
+        this.mouse.set(mouseX, mouseY);
     }
     
-    // apply a uniform force to all particles (e.g. gravity)
+    // apply a uniform force to all particles (e.g. gravity, wind)
     applyForce(force) {
         this.particles.forEach(particle => {
             particle.applyForce(force);
@@ -46,12 +90,17 @@ class ParticleManager {
     // https://natureofcode.com/book/chapter-2-forces/
     friction() {
         this.particles.forEach(particle => {
+            // way # 1
             // not working very well for some reason
-            let friction = particle.velocity.copy();
-            friction.mult(-1);
+            // i suspect i've accidentally created a side effect somewhere
+            // let friction = particle.velocity.copy();
+            // friction.mult(-1);
             // friction.normalize();
-            friction.mult(this.coefficientOfFriction);
-            particle.applyForce(friction);
+            // friction.mult(this.coefficientOfFriction);
+            // particle.applyForce(friction);
+
+            // way # 2
+            particle.velocity.mult(0.9);
         })
     }
 
@@ -60,7 +109,7 @@ class ParticleManager {
         this.particles.forEach(particle => {
             let mouseForce = p5.Vector.sub(particle.position, createVector(mouseX, mouseY));
             mouseForce.normalize();
-            mouseForce.div(10);
+            mouseForce.div(2);
 
             particle.applyForce(mouseForce);
         });
