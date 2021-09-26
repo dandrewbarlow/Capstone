@@ -70,7 +70,7 @@ class Particle {
     calculateColor() {
         let noiseVal = noise(this.position.x, this.position.y, this.offset);
         noiseVal = map(noiseVal, 0, 1, 0, 255);
-        let col = color(noiseVal*randomGaussian(2,1)/2, noiseVal*randomGaussian(2,1)/5, noiseVal*randomGaussian(2,1), 220);
+        let col = color(noiseVal*randomGaussian(1,0.5)/2, noiseVal*randomGaussian(1,0.5)/5, noiseVal*randomGaussian(2,1), 220);
         // console.log(col);
 
         return col;
