@@ -6,13 +6,10 @@
 
 class Particle {
 
-    // create particle in random place, w/ no velocity or acceleration
+    // create particle
     constructor(p, v, a) {
 
-        // randomize position in canvas
         this.position = p;
-
-        // initialize w/ no movement
         this.velocity = v;
         this.acceleration = a;
 
@@ -20,9 +17,10 @@ class Particle {
         this.windowHeight = windowHeight;
         this.windowWidth = windowWidth;
 
+        // arbitrary at this point, would like to make variable in response to velocity at some point
         this.radius = 20;
 
-        // for creating color based on perlin noise
+        // for creating color based on Perlin noise
         this.offset = 0;
     }
 
@@ -72,7 +70,7 @@ class Particle {
     calculateColor() {
         let noiseVal = noise(this.position.x, this.position.y, this.offset);
         noiseVal = map(noiseVal, 0, 1, 0, 255);
-        let col = color(noiseVal/2, 0, noiseVal, 2200);
+        let col = color(noiseVal*randomGaussian(1,0.5)/2, noiseVal*randomGaussian(1,0.5)/5, noiseVal*randomGaussian(2,1), 220);
         // console.log(col);
 
         return col;
