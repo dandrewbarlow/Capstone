@@ -26,9 +26,12 @@ class ParticleManager {
         this.coefficientOfFriction = .1;
     }
 
+    // spawn one particle, remove one particle
+    // perfectly balanced, as all things should be
     spawnParticle(p, v, a) {
         let particle = new Particle(p,v,a);
         this.particles.push(particle);
+        this.particles.shift();
     }
 
     // calculates mouse movement between frames
@@ -54,8 +57,6 @@ class ParticleManager {
             createVector(0, 0)
         );
 
-        // keep particles from reaching too high of a value
-        this.particles.shift();
     }
 
     // resize all particles

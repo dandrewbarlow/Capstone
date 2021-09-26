@@ -1,6 +1,6 @@
 /*
-sketch.js
 Andrew Barlow
+sketch.js
 Emitting CU
 p5.js sketch for Capstone project promotion using a particle system for interaction
 
