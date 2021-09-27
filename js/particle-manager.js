@@ -45,7 +45,7 @@ class ParticleManager {
     mouseMovement() {
         let distance = p5.Vector.sub(this.mouse, createVector(mouseX, mouseY));
         // console.log(distance);
-        return distance.div(-2);
+        return distance.div(-1);
     }
 
     // emit particles from mouse
@@ -121,7 +121,7 @@ class ParticleManager {
             // particle.applyForce(friction);
 
             // way # 2
-            particle.velocity.mult(0.9);
+            particle.velocity.mult(0.95);
         })
     }
 
