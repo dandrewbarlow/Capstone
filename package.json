@@ -3,6 +3,7 @@
     "sass": "^1.42.1"
   },
   "scripts": {
+    "build": "sass sass/style.scss css/style.css",
     "watch": "sass --watch sass/style.scss css/style.css"
   }
 }
