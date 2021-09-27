@@ -8,6 +8,7 @@ class ParticleManager {
 
     // create n particles
     constructor(n) {
+        this.n = n;
         this.particles = [];
         for (let i = 0; i < n; i++) {
             this.particles.push( 
@@ -26,12 +27,18 @@ class ParticleManager {
         this.coefficientOfFriction = .1;
     }
 
+    particleTrim() {
+        // console.log(this.particles.length);
+        while (this.particles.length > this.n) {
+            this.particles.shift();
+        }
+    }
+
     // spawn one particle, remove one particle
     // perfectly balanced, as all things should be
     spawnParticle(p, v, a) {
         let particle = new Particle(p,v,a);
         this.particles.push(particle);
-        this.particles.shift();
     }
 
     // calculates mouse movement between frames
@@ -44,6 +51,15 @@ class ParticleManager {
     // emit particles from mouse
     mouseEmit() {
         let mouseMove = this.mouseMovement();
+
+        // remove the oldest particle
+        this.particles.shift();
+
+        // don't do anything while mouse isn't moving
+        if (mouseMove.x == 0 && mouseMove.y == 0) {
+            return;
+        }
+
         let velocity = createVector(
             mouseMove.x * randomGaussian(1, 1) + randomGaussian(1, 1),
             mouseMove.y * randomGaussian(1, 1) + randomGaussian(1, 1),
@@ -51,11 +67,14 @@ class ParticleManager {
 
         // console.log(velocity);
 
-        this.spawnParticle(
-            createVector(mouseX, mouseY),
-            velocity,
-            createVector(0, 0)
-        );
+        for (let i = 0; i < 3; i++) {
+
+            this.spawnParticle(
+                createVector(mouseX, mouseY),
+                velocity,
+                createVector(0, 0)
+            );
+        }
 
     }
 
@@ -71,6 +90,7 @@ class ParticleManager {
         this.friction();
 
         this.mouseEmit();
+        this.particleTrim();
 
         this.particles.forEach(particle => {
             particle.update();
