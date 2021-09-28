@@ -113,9 +113,8 @@ nav ul li a img {
   height: 100%;
 }
 
-#information {
+#container {
   margin: 10%;
-  padding: 3%;
   line-height: 2;
   background-color: #000000aa;
   font-size: 20pt;
