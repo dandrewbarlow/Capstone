@@ -1,4 +1,4 @@
-let content = $("#information");
+let content = $("#container");
 
 $("#about").on("click", () =>{
     content.html(
