@@ -1,4 +1,4 @@
-@media only screen and (max-width: 680px) {
+@media only screen and (max-width: 750px) {
     #menubar {
         flex-flow: column wrap;
         text-align: center;
@@ -10,6 +10,11 @@
             font-size: 1.5em;
             align-self: center;
         }
+    }
+
+    #information {
+        line-height: 1.3;
+        padding: 0;
     }
 }
 

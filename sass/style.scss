@@ -12,9 +12,16 @@ html {
     }
 }
 
-a {color: $link;}
+button {
+    background-color: #00000000;
+    border-style: none;
+    color: $link;
+    font-size: 1em;
+    padding: 0.25em;
+}
+a {color:$link}
 a:visited {color:$link-visited}
-a:hover {color:$link-hover}
+button:hover {color:$link-hover}
 
 #menubar {
     display: flex;
@@ -50,6 +57,14 @@ nav {
             }
         }
     }
+}
+
+#information {
+    margin: 10%;
+    padding: 3%;
+    line-height: 2;
+    background-color: $menu-background;
+    font-size: 20pt;
 }
 
 @import 'responsive';

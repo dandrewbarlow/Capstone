@@ -7,6 +7,7 @@
 
     <!-- JQuery -->
     <script defer src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script defer src="js/jquery-handling.js"></script>
 
     <!-- p5.js -->
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
@@ -28,14 +29,16 @@
         </header>
         <nav>
             <ul>
-                <li><a href="#">About</a></li>
-                <li><a href="#">When</a></li>
-                <li><a href="#">Where</a></li>
+                <li><button id="about">about</button></li>
+                <li><button id="when">when & where</button></li>
+                <!-- <li><button id="where">where</button></li> -->
                 <li><a href="https://github.com/dandrewbarlow/Emitting-CU-Website">
                     <img src="img/octocat.svg" alt="Link to Github">
                 </a></li>
             </ul>
         </nav>
     </div>
+
+    <div id="information"></div>
 </body>
 </html>
