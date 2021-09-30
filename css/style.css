@@ -119,6 +119,11 @@ nav ul li a img {
   line-height: 2;
   background-color: #000000aa;
   font-size: 20pt;
+  text-align: center;
+}
+#information p {
+  text-align: left;
+  margin-top: 5%;
 }
 
 @media only screen and (max-width: 750px) {
