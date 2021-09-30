@@ -124,10 +124,6 @@ nav ul li a img {
   height: 50px;
 }
 
-<<<<<<< HEAD
-#container {
-  margin: 10%;
-=======
 #content {
   text-align: center;
   margin: auto;
@@ -140,7 +136,6 @@ nav ul li a img {
 
 #information {
   padding: 3%;
->>>>>>> dev
   line-height: 2;
   background-color: #000000aa;
 }
