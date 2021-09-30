@@ -64,6 +64,12 @@ nav {
     line-height: 2;
     background-color: $menu-background;
     font-size: 20pt;
+    text-align: center;
+
+    p {
+        text-align: left;
+        margin-top: 5%;
+    }
 }
 
 @import 'responsive';
