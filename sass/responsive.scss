@@ -2,13 +2,18 @@
     #menubar {
         flex-flow: column wrap;
         text-align: center;
-        header h1 {
-            margin: 0.2em;
+        header {
+            flex-flow: column;
+            img {display: none;}
+            h1 {
+                margin: 0.2em;
+            }
         }
         nav {
 
             font-size: 1.5em;
             align-self: center;
+            img{width: 50%;}
         }
     }
 
