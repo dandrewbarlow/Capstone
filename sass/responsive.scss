@@ -1,4 +1,7 @@
 @media only screen and (max-width: 750px) {
+    #layoutContainer {
+        // height: 85vh;
+    }
 
     #menubar {
         flex-flow: column wrap;
@@ -14,12 +17,10 @@
             margin-right: 0;
             font-size: 1.5em;
             align-self: center;
+
             img{
                 height: 30px;
                 width: 30px;
-            }
-            
-            #facebookEvent {
             }
         }
     }
@@ -33,6 +34,7 @@
 
     footer {
         justify-content: center;
+        // margin-bottom: 25%;
     }
 }
 
