@@ -1,4 +1,5 @@
 @media only screen and (max-width: 750px) {
+
     #menubar {
         flex-flow: column wrap;
         text-align: center;
@@ -10,16 +11,28 @@
             }
         }
         nav {
-
+            margin-right: 0;
             font-size: 1.5em;
             align-self: center;
-            img{width: 50%;}
+            img{
+                height: 30px;
+                width: 30px;
+            }
+            
+            #facebookEvent {
+            }
         }
     }
 
+
     #information {
+        font-size: 0.8em;
         line-height: 1.3;
         padding: 0;
+    }
+
+    footer {
+        justify-content: center;
     }
 }
 
